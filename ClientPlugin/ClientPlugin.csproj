@@ -520,14 +520,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config\IPluginConfig.cs" />
-    <Compile Include="Config\PersistentConfig.cs" />
-    <Compile Include="Config\PluginConfig.cs" />
-    <Compile Include="GUI\MyPluginConfigDialog.cs" />
-    <Compile Include="Logging\IPluginLogger.cs" />
-    <Compile Include="Logging\LogFormatter.cs" />
-    <Compile Include="Logging\PluginLogger.cs" />
-    <Compile Include="Patches\PatchHelpers.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
