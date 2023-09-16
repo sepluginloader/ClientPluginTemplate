@@ -41,5 +41,11 @@ namespace ClientPlugin
         {
             MyGuiSandbox.AddScreen(new MyPluginConfigDialog());
         }*/
+
+        //TODO: Uncomment and use this method to load asset files
+        /*public void LoadAssets(string folder)
+        {
+
+        }*/
     }
 }
