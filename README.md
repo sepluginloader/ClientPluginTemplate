@@ -1,5 +1,7 @@
 # Space Engineers Client Plugin Template
 
+[Server/Client version of the template](https://github.com/sepluginloader/PluginTemplate)
+
 ## Prerequisites
 
 - [Space Engineers](https://store.steampowered.com/app/244850/Space_Engineers/)
