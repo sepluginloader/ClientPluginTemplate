@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Reflection;
 using HarmonyLib;
-using Sandbox.Graphics.GUI;
 using VRage.Plugins;
 
 namespace ClientPlugin
