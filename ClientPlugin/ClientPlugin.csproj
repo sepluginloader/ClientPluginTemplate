@@ -494,7 +494,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Kill-Space-Engineers.bat" />
+    <Content Include="deploy.bat" />
     <Content Include="PluginHub.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -504,4 +504,7 @@
     <PackageReference Include="Lib.Harmony" Version="2.2.2" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>call "$(ProjectDir)\deploy.bat" "$(TargetPath)" "$(SolutionName)"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
