@@ -11,6 +11,8 @@ import uuid
 
 DRY_RUN = False
 
+TEMPLATE_NAME = 'ClientPluginTemplate'
+
 PT_PROJECT_NAME = r'^([A-Z][a-z_0-9]+)+$'
 RX_PROJECT_NAME = re.compile(PT_PROJECT_NAME)
 
@@ -60,7 +62,7 @@ def input_plugin_name():
 
 
 def main():
-    if not os.path.isfile('PluginTemplate.sln'):
+    if not os.path.isfile(f'{TEMPLATE_NAME}.sln'):
         print('Run this script only once from the working copy (solution) folder')
         sys.exit(-1)
 
@@ -70,7 +72,7 @@ def main():
 
     torch_guid = generate_guid()
     replacements = {
-        'PluginTemplate': plugin_name,
+        TEMPLATE_NAME: plugin_name,
         'A061FC6C-713E-42CD-B413-151AC8A5074C': generate_guid().upper(),
         'FFB7FCA3-B168-43F4-8DBF-6247C0D331C8': generate_guid().upper(),
         'C5784FE0-CF0A-4870-9DEF-7BEA8B64C01A': generate_guid().upper(),
@@ -80,10 +82,10 @@ def main():
 
     def iter_paths():
         print('Solution:')
-        yield 'PluginTemplate.sln', 'PluginTemplate.sln'
+        yield f'{TEMPLATE_NAME}.sln', f'{TEMPLATE_NAME}.sln'
 
-        if os.path.exists('PluginTemplate.sln.DotSettings.user'):
-            yield 'PluginTemplate.sln.DotSettings.user', 'PluginTemplate.sln.DotSettings.user'
+        if os.path.exists(f'{TEMPLATE_NAME}.sln.DotSettings.user'):
+            yield f'{TEMPLATE_NAME}.sln.DotSettings.user', f'{TEMPLATE_NAME}.sln.DotSettings.user'
 
         for project_name in PROJECT_NAMES:
 
@@ -91,6 +93,8 @@ def main():
             print(f'{project_name}:')
 
             for dirpath, dirnames, filenames in os.walk(project_name):
+                if dirpath.startswith('Bin64'):
+                    continue
                 dirpath2 = dirpath + '\\'
                 if '\\obj\\' in dirpath2 or '\\bin\\' in dirpath2:
                     continue
@@ -105,13 +109,13 @@ def main():
     for filename, path in iter_paths():
         print(f'  {filename}')
         replace_text_in_file(replacements, path)
-        if 'PluginTemplate' in filename:
+        if TEMPLATE_NAME in filename:
             rename_files.append((filename, path))
 
     if not DRY_RUN:
         for filename, path in rename_files:
             dir_path = os.path.dirname(path)
-            dst_name = filename.replace('PluginTemplate', plugin_name)
+            dst_name = filename.replace(TEMPLATE_NAME, plugin_name)
             dst_path = os.path.join(dir_path, dst_name)
             os.rename(path, dst_path)
 

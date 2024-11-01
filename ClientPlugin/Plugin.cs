@@ -8,7 +8,7 @@ namespace ClientPlugin
     // ReSharper disable once UnusedType.Global
     public class Plugin : IPlugin, IDisposable
     {
-        public const string Name = "PluginTemplate";
+        public const string Name = "ClientPluginTemplate";
         public static Plugin Instance { get; private set; }
 
         [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
