@@ -24,6 +24,15 @@
 
 ## Remarks
 
+### Plugin configuration
+
+You can have a nice configuration dialog with little effort in the game client.
+Customize the `Config` class in the `ClientPlugin` project, just follow the examples.
+It supports many different data types, including key binding. Once you have more
+options than can fit on the screen the dialog will have a vertical scrollbar.
+
+![Example config dialog](Doc/ConfigDialogExample.png "Example config dialog")
+
 ### Debugging
 
 - Always use a debug build if you want to set breakpoints and see variable values.
