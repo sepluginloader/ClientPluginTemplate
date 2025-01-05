@@ -13,14 +13,13 @@
 
 1. Click on **Use this template** (top right corner on GitHub) and follow the wizard to create your repository
 2. Clone your repository to have a local working copy
-3. Run `ReplaceGuidsAndRename.py`, enter the name of your plugin project in `CapitalizedWords` format
-4. Edit `Edit-and-run-before-opening-solution.bat` to match your local paths, then run it
+3. Run `setup.py`, enter the name of your plugin project in `CapitalizedWords` format
+4. Let `setup.py` auto-detect your install location or fill it in manually
 5. Open the solution in Visual Studio or Rider
-6. Make a test build, it should deploy the resulting files to their respective target folders (see them in the build log) 
+6. Make a test build, the plugin's DLL should be deployed (see the build log for the path)
 7. Test that the empty plugin can be enabled in Plugin Loader
-8. Delete the `ReplaceGuidsAndRename.py` and the working copy folder (not needed anymore)
-9. Replace the contents of this file with the description of your plugin
-10. Follow the TODO comments in the source code
+8. Replace the contents of this file with the description of your plugin
+9. Follow the TODO comments in the source code
 
 ## Remarks
 
